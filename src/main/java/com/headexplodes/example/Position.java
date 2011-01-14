@@ -1,4 +1,4 @@
-package com.headexplodes.example.withoutGuava;
+package com.headexplodes.example;
 
 public enum Position {
 

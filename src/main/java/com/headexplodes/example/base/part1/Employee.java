@@ -1,9 +1,13 @@
-package com.headexplodes.example.withGuava;
+package com.headexplodes.example.base.part1;
 
 
 import com.google.common.base.Objects;
-import com.google.common.collect.ComparisonChain;
+import com.headexplodes.example.Position;
 
+/**
+ * Same as {@link EmployeeWithoutGuava}, but uses {@link Objects}'s helper methods to implement
+ * equals() / hashCode() / toString()
+ */
 public class Employee {
 
     private String name;
@@ -13,6 +17,7 @@ public class Employee {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -20,6 +25,7 @@ public class Employee {
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -27,6 +33,7 @@ public class Employee {
     public Position getPosition() {
         return position;
     }
+
     public void setPosition(Position position) {
         this.position = position;
     }
@@ -36,7 +43,7 @@ public class Employee {
         if (!(object instanceof Employee)) return false;
 
         Employee that = (Employee) object;
-        return Objects.equal(name, that.name)
+        return     Objects.equal(name, that.name)
                 && Objects.equal(age, that.age)
                 && Objects.equal(position, that.position);
     }

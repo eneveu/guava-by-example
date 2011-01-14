@@ -1,7 +1,9 @@
-package com.headexplodes.example.withoutGuava;
+package com.headexplodes.example.base.part1;
 
 
-public class Employee {
+import com.headexplodes.example.Position;
+
+public class EmployeeWithoutGuava {
 
     private String name;
     private Integer age;
@@ -10,6 +12,7 @@ public class Employee {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -17,6 +20,7 @@ public class Employee {
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -24,15 +28,16 @@ public class Employee {
     public Position getPosition() {
         return position;
     }
+
     public void setPosition(Position position) {
         this.position = position;
     }
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Employee)) return false;
+        if (!(object instanceof EmployeeWithoutGuava)) return false;
 
-        Employee that = (Employee) object;
+        EmployeeWithoutGuava that = (EmployeeWithoutGuava) object;
         if (age != null ? !age.equals(that.age) : that.age != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (position != that.position) return false;
@@ -50,7 +55,7 @@ public class Employee {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(Employee.class.getSimpleName());
+        sb.append(EmployeeWithoutGuava.class.getSimpleName());
         sb.append("{name=").append(name);
         sb.append(", age=").append(age);
         sb.append(", position=").append(position);
