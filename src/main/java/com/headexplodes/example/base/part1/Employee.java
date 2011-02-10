@@ -1,4 +1,4 @@
-package com.headexplodes.example.base.part1;
+package com.headexplodes.example.base.part1;                                               ,
 
 
 import com.google.common.base.Objects;
