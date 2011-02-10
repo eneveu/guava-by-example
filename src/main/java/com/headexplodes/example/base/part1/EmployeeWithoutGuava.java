@@ -1,13 +1,13 @@
 package com.headexplodes.example.base.part1;
 
 
-import com.headexplodes.example.Position;
+import com.headexplodes.example.Job;
 
 public class EmployeeWithoutGuava {
 
     private String name;
-    private Integer age;
-    private Position position;
+    private Job job;
+    private int age;
 
     public String getName() {
         return name;
@@ -17,38 +17,38 @@ public class EmployeeWithoutGuava {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
     }
 
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof EmployeeWithoutGuava)) return false;
 
+        // TODO better equals method
         EmployeeWithoutGuava that = (EmployeeWithoutGuava) object;
-        if (age != null ? !age.equals(that.age) : that.age != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (position != that.position) return false;
-        return true;
+        if (job != that.job) return false;
+        return age == that.age;
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        result = 31 * result + (position != null ? position.hashCode() : 0);
+        result = 31 * result + (job != null ? job.hashCode() : 0);
+        result = 31 * result + (age);
         return result;
     }
 
@@ -58,7 +58,7 @@ public class EmployeeWithoutGuava {
         sb.append(EmployeeWithoutGuava.class.getSimpleName());
         sb.append("{name=").append(name);
         sb.append(", age=").append(age);
-        sb.append(", position=").append(position);
+        sb.append(", job=").append(job);
         sb.append('}');
         return sb.toString();
     }

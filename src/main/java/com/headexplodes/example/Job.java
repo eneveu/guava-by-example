@@ -1,6 +1,6 @@
 package com.headexplodes.example;
 
-public enum Position {
+public enum Job {
 
     CEO,
 

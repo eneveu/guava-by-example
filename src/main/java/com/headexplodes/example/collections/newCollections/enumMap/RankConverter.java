@@ -1,10 +1,10 @@
 package com.headexplodes.example.collections.newCollections.enumMap;
 
-import com.headexplodes.example.Position;
+import com.headexplodes.example.Job;
 
 public interface RankConverter {
 
-    MilitaryRank toMilitaryRank(Position position);
+    MilitaryRank toMilitaryRank(Job job);
 
-    Position toPosition(MilitaryRank rank);
+    Job toPosition(MilitaryRank rank);
 }

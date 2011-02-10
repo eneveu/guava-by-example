@@ -1,13 +1,13 @@
 package com.headexplodes.example.collections.newCollections.enumMap;
 
-import com.headexplodes.example.Position;
+import com.headexplodes.example.Job;
 
 public class RankConverterUsingSwitches implements RankConverter {
 
 
     @Override
-    public MilitaryRank toMilitaryRank(Position position) {
-        switch (position) {
+    public MilitaryRank toMilitaryRank(Job job) {
+        switch (job) {
             case CEO:
                 return MilitaryRank.GENERAL;
             case DEVELOPER:
@@ -20,14 +20,14 @@ public class RankConverterUsingSwitches implements RankConverter {
     }
 
     @Override
-    public Position toPosition(MilitaryRank rank) {
+    public Job toPosition(MilitaryRank rank) {
         switch (rank) {
             case GENERAL:
-                return Position.CEO;
+                return Job.CEO;
             case SOLDIER:
-                return Position.DEVELOPER;
+                return Job.DEVELOPER;
             case NINJA:
-                return Position.DESIGNER;
+                return Job.DESIGNER;
             default:
                 return null;
         }
