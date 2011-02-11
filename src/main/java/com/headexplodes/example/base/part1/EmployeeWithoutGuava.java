@@ -3,11 +3,12 @@ package com.headexplodes.example.base.part1;
 
 import com.headexplodes.example.Job;
 
-public class EmployeeWithoutGuava {
+public class EmployeeWithoutGuava implements Comparable<EmployeeWithoutGuava> {
 
     private String name;
+    private Integer age;
     private Job job;
-    private int age;
+
 
     public String getName() {
         return name;
@@ -15,6 +16,15 @@ public class EmployeeWithoutGuava {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public Job getJob() {
@@ -25,30 +35,21 @@ public class EmployeeWithoutGuava {
         this.job = job;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof EmployeeWithoutGuava)) return false;
 
-        // TODO better equals method
         EmployeeWithoutGuava that = (EmployeeWithoutGuava) object;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (job != that.job) return false;
-        return age == that.age;
+        return (name == that.name || (name != null && name.equals(that.name)))
+                && (age == that.age || (age != null && age.equals(that.age)))
+                && job == that.job;
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (age != null ? age.hashCode() : 0);
         result = 31 * result + (job != null ? job.hashCode() : 0);
-        result = 31 * result + (age);
         return result;
     }
 
@@ -61,5 +62,20 @@ public class EmployeeWithoutGuava {
         sb.append(", job=").append(job);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(EmployeeWithoutGuava other) {
+        int result;
+
+        result = name.compareTo(other.name);
+        if (result != 0) return result;
+
+        result = age.compareTo(other.age);
+        if (result != 0) return result;
+
+        result = job.compareTo(other.job);
+
+        return result;
     }
 }

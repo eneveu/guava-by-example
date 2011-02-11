@@ -19,19 +19,19 @@ public class StaticFactories {
     }
 
     private void typeInference() {
-        List<String> names = Lists.newArrayList();
+        List<Map<String, Object>> names = Lists.newArrayList();
 
     }
 
     private void goodNamingConventions1() {
 
-        List<String> names = Lists.newArrayListWithExpectedSize(42);
+        List<Map<String, Object>> names = Lists.newArrayListWithExpectedSize(42);
 
     }
 
     private void goodNamingConventions2() {
 
-        List<String> names = Lists.newArrayListWithCapacity(42);
+        List<Map<String, Object>> names = Lists.newArrayListWithCapacity(42);
 
     }
 

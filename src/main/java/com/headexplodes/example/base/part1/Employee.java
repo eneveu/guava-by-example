@@ -1,14 +1,10 @@
-package com.headexplodes.example.base.part1;                                               ,
-
+package com.headexplodes.example.base.part1;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 import com.headexplodes.example.Job;
 
-/**
- * Same as {@link EmployeeWithoutGuava}, but uses {@link Objects}'s helper methods to implement
- * equals() / hashCode() / toString()
- */
+
 public class Employee implements Comparable<Employee> {
 
     private String name;
@@ -46,8 +42,8 @@ public class Employee implements Comparable<Employee> {
 
         Employee that = (Employee) object;
         return Objects.equal(name, that.name)
-                && Objects.equal(job, that.job)
-                && age == that.age;
+                && Objects.equal(age, that.age)
+                && job == that.job;
     }
 
     @Override
@@ -59,8 +55,8 @@ public class Employee implements Comparable<Employee> {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("name", name)
-                .add("job", job)
                 .add("age", age)
+                .add("job", job)
                 .toString();
     }
 
